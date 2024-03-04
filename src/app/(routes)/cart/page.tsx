@@ -1,9 +1,17 @@
+"use client"
+import NoCart from '@/app/components/NoCart';
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
+import React, { useState } from 'react';
 import { IoArrowBackCircle } from "react-icons/io5";
 
 function CartPage() {
+    const [noCartHere,setNoCartHere]=useState(true)
+    if (noCartHere) {
+      return(
+        <NoCart/>
+      )  
+    }
     return (
         <div className='container mx-auto px-3 md:px-[100px] my-10'>
             <div className='mb-5'>
