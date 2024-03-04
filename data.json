@@ -1,0 +1,60 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Product 1",
+      "description": "Description of Product 1",
+      "price": 29.99,
+      "image": "https://via.placeholder.com/150",
+      "category": "Category 1"
+    },
+    {
+      "id": 2,
+      "name": "Product 2",
+      "description": "Description of Product 2",
+      "price": 39.99,
+      "image": "https://via.placeholder.com/150",
+      "category": "Category 2"
+    },
+    {
+      "id": 3,
+      "name": "Product 3",
+      "description": "Description of Product 3",
+      "price": 49.99,
+      "image": "https://via.placeholder.com/150",
+      "category": "Category 1"
+    },
+    {
+      "id": 4,
+      "name": "Product 4",
+      "description": "Description of Product 4",
+      "price": 59.99,
+      "image": "https://via.placeholder.com/150",
+      "category": "Category 2"
+    },
+    {
+      "id": 5,
+      "name": "Product 4",
+      "description": "Description of Product 4",
+      "price": 59.99,
+      "image": "https://via.placeholder.com/150",
+      "category": "Category 5"
+    },
+    {
+      "id": 6,
+      "name": "Product 4",
+      "description": "Description of Product 4",
+      "price": 59.99,
+      "image": "https://via.placeholder.com/150",
+      "category": "Category 6"
+    },
+    {
+      "id": 7,
+      "name": "Product 4",
+      "description": "Description of Product 4",
+      "price": 59.99,
+      "image": "https://via.placeholder.com/150",
+      "category": "Category 7"
+    }
+  ]
+}
