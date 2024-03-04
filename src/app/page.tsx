@@ -13,9 +13,9 @@ export default function Home() {
         <Navbar />
         <div className=" h-[50px] lg:h-[100px]"></div>
         <Banner />
-        <ProductSection/>
-        <WhyShopWithUs/>
-        <Footer />
+        <ProductSection />
+        <WhyShopWithUs />
+
       </div>
     </>
   );
