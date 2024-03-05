@@ -3,10 +3,11 @@ import ProductCard from './products/ProductCard';
 import { ProductInterface } from '../interfaces';
 
 
-const ProductSection = () => {
+const ProductSection = ({showStatus}:any) => {
     const [products, setProducts] = useState<ProductInterface[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
+    const [showNumber, setShowNumber] = useState<number | 'all'>(showStatus); 
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -22,7 +23,7 @@ const ProductSection = () => {
 
         fetchData();
     }, [products]);
-
+    const filteredProducts = showNumber === 'all' ? products : products.slice(0, showNumber); 
     if (loading) {
         return <div className='flex justify-center'>Loading...</div>;
     }
@@ -46,7 +47,7 @@ const ProductSection = () => {
                 </div>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-                {products.map((product: ProductInterface, index: number) => (
+                {filteredProducts.map((product: ProductInterface, index: number) => (
                     <ProductCard key={index} product={product} />
                 ))}
             </div>

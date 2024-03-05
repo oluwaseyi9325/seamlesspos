@@ -1,11 +1,12 @@
-
+"use client"
 import ProductSection from '@/app/components/ProductSection'
 import React from 'react'
 
 function page() {
+    const showStatus="all"
     return (
         <div>
-            <ProductSection />
+            <ProductSection showStatus={showStatus} />
         </div>
     )
 }

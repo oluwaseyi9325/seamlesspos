@@ -7,13 +7,14 @@ import WhyShopWithUs from "./components/WhyShopWithUs";
 import ProductSection from "./components/ProductSection";
 
 export default function Home() {
+  const showStatus=8
   return (
     <>
       <div>
         <Navbar />
         <div className=" h-[50px] lg:h-[100px]"></div>
         <Banner />
-        <ProductSection />
+        <ProductSection showStatus={Number(showStatus)} />
         <WhyShopWithUs />
 
       </div>
