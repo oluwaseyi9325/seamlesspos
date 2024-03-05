@@ -4,7 +4,7 @@ export interface ProductInterface {
     description: string;
     overviews: string[];
     warranty: string;
-    price: string;
+    price: string|number;
     image: string[];
     category: string;
     reviews: ReviewInterface[];

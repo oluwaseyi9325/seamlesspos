@@ -21,7 +21,7 @@ interface Param {
 function ProductPage(param:Param) {
   const [product, setProducts] = useState<ProductInterface>();
   const [quantity, setQuantity] = useState<number>(1); 
-  const [newPrice,setNewPrice]=useState()
+  const [newPrice,setNewPrice]=useState<any>()
   console.log(param)
   let productId = param.params.productId
   let product_name = param.searchParams.product_name
@@ -44,21 +44,27 @@ function ProductPage(param:Param) {
 
   const incrementQuantity = () => {
     setQuantity((prevQuantity) => prevQuantity + 1);
+    setNewPrice((prevQuantity:any) => prevQuantity + parseInt(newPrice))
     localStorage.setItem("quantity", quantity.toString());
+    localStorage.setItem("newPrice",newPrice.toString())
 };
 
 
 const decrementQuantity = () => {
     if (quantity > 1) {
         setQuantity((prevQuantity) => prevQuantity - 1);
+        setNewPrice((prevQuantity:any) => prevQuantity - parseInt(newPrice))
         localStorage.setItem("quantity", quantity.toString());
+        localStorage.setItem("newPrice",newPrice.toString())
     }
 };
 
 useEffect(() => {
   const savedQuantity = localStorage.getItem('quantity');
+  const savedPrice= localStorage.getItem('newPrice');
   if (savedQuantity) {
       setQuantity(Number(savedQuantity));
+      setNewPrice(Number(savedPrice))
   }
 }, []);
 
@@ -76,7 +82,7 @@ useEffect(() => {
             <ProductSlider product={product}/>
             <div className="md:w-1/2">
               <h1 className='text-3xl font-bold my-5'>{product?.name}</h1>
-              <p className="text-lg mb-5">Price: {product?.price}</p>
+              <p className="text-lg mb-5">Price: {quantity==1?product?.price:<del>{product?.price}</del>}  {quantity !== 1 ? `--- ${newPrice }` : ""}</p>
               <div className="flex items-center mb-5">
                 <span className="mr-3">Quantity:</span>
                 <div className="border border-gray-300 rounded-md flex items-center px-3">

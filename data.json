@@ -23,7 +23,7 @@
         {
           "id": "rev01",
           "reviewsMessage": "This product is of high quality and the price is reasonable.",
-          "rate": 5,
+          "rate": 1,
           "userId": "",
           "createAt": ""
         }
@@ -52,7 +52,7 @@
         {
           "id": "rev02",
           "reviewsMessage": "Great calculator, very useful for my engineering courses.",
-          "rate": 5,
+          "rate": 2,
           "userId": "",
           "createAt": ""
         }
@@ -81,7 +81,7 @@
         {
           "id": "rev03",
           "reviewsMessage": "Love these shoes, very comfortable for long runs.",
-          "rate": 5,
+          "rate": 4,
           "userId": "",
           "createAt": ""
         }
