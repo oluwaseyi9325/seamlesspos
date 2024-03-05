@@ -30,55 +30,51 @@ const ProductSection = ({ showStatus }: any) => {
     }, []);
 
     useEffect(() => {
-        // Apply initial filtering
         setFilteredProducts(products.slice(0, showNumber === 'all' ? undefined : showNumber));
     }, [products, showNumber]);
 
     const searchBtn = () => {
-        // Filter products based on search query
         const filtered = products.filter((product) =>
             product.name.toLowerCase().includes(searchQuery.toLowerCase())
         );
         setFilteredProducts(filtered);
     };
 
-    if (loading) {
-        return <div className='flex justify-center'>Loading...</div>;
-    }
-
-    if (error) {
-        return <div>Error: {error}</div>;
-    }
+   
 
     return (
-        <section className="container mx-auto py-12 px-10 md:px-20">
-            <div className="flex justify-between items-center mb-6">
+        <section className="container mx-auto py-12 px-5 md:px-20">
+            <div className="md:flex justify-between items-center mb-6">
                 <h2 className="text-2xl font-bold text-gray-800">Products</h2>
                 <div>
-                    <span className='bg-white py-4 px-3 rounded-lg'>
-                        <input
-                            placeholder='Search'
-                            className='rounded focus:none'
-                            value={searchQuery}
-                            onChange={(e) => setSearchQuery(e.target.value)}
-                        />
-                        <button onClick={searchBtn} className='bg-gray-800 p-2 text-white rounded-lg'>Search</button>
-                    </span>
+                <span className='bg-white py-2 px-3 rounded-lg flex items-center'>
+                <input
+                    placeholder='Search'
+                    className='rounded focus:outline-none md:flex-grow'
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                />
+                <button onClick={searchBtn} className='bg-gray-800 text-white px-4 py-2 rounded-lg md:ml-2 -ml-5 hover:bg-gray-700'>Search</button>
+            </span>
+
                 </div>
-                <div>
-                    <select className="px-4 py-2 mr-4 bg-gray-200 text-gray-800 rounded">
-                        <option value="">All Categories</option>
-                        <option>Sport</option>
-                        <option>Education</option>
-                        <option>Politics</option>
-                    </select>
-                </div>
+               
             </div>
+            <div >
+            {loading ? (
+                    <div className='flex justify-center'>Loading...</div>
+            ) : error ? (
+                <div>Error: {error}</div>
+            ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
                 {filteredProducts.map((product: ProductInterface, index: number) => (
                     <ProductCard key={index} product={product} />
                 ))}
             </div>
+            )}
+
+</div>
+
         </section>
     );
 };

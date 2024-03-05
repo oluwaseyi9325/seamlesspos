@@ -14,8 +14,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     return (
         <div className={styles.container}>
             <Link href={`/products/${product.id}?product_name=${product.name}`}>
-                <div className="relative aspect-w-3 aspect-h-4 mb-4">
-                    <Image src={product?.image[0]} width={300} height={300} alt={product.name} className="object-cover rounded-lg" />
+                <div className="relative aspect-w-3 aspect-h-4 mb-4 ">
+                    <Image src={product?.image[0]} width={300} height={300} alt={product.name} className="object-cover w-ful rounded-lg" />
                     <div className="absolute top-2 right-2 bg-gray-800 text-white px-2 py-1 rounded-full text-xs">{product.category}</div>
                 </div>
                 <h3 className="text-lg font-semibold mb-2">

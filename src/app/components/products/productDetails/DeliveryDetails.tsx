@@ -2,7 +2,7 @@ import React from 'react';
 
 function DeliveryDetails() {
   return (
-    <div className='bg-white rounded-lg p-5 border shadow-md md:w-5/6 mt-5'>
+    <div className='bg-white rounded-lg p-5 border shadow-md lg:w-5/6 mt-5'>
       <h2 className="text-2xl font-bold mb-5">Delivery & Returns</h2>
       <div className="text-gray-700">
         <div className="mb-6">

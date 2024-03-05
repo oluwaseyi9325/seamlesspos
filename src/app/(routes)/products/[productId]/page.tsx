@@ -77,8 +77,8 @@ useEffect(() => {
       <Navbar />
       <div className=" h-[50px] lg:h-[50px]"></div>
       <div className='px-3 md:px-[100px]'>
-        <section className='md:flex justify-between gap-10 my-10'>
-          <div className='bg-white rounded-lg p-5 md:px-10 md:pt-10 shadow md:flex justify-between gap-10 mt-5 md:w-[2000px]'>
+        <section className='lg:flex justify-between gap-10 my-20'>
+          <div className='bg-white rounded-lg p-5 md:px-10 md:pt-10 shadow md:flex justify-between gap-10 mt-5 lg:w-[2000px]'>
             <ProductSlider product={product}/>
             <div className="md:w-1/2">
               <h1 className='text-3xl font-bold my-5'>{product?.name}</h1>
