@@ -1,38 +1,61 @@
 "use client"
-import React, { useState } from 'react';
+
 import Image from 'next/image';
 import { FaFacebook, FaTwitter, FaWhatsapp } from 'react-icons/fa';
 import { Carousel } from 'react-responsive-carousel';
 import ProductSpec from '@/app/components/ProductSpec';
 import Navbar from '@/app/components/Navbar';
+import { useSearchParams } from 'next/navigation';
+import React, { useEffect, useState } from 'react';
 
-function ProductPage() {
+function ProductPage(param: any,) {
+  const [product, setProducts] = useState<any>({});
+  // const searchParams = useSearchParams()
+  // console.log(searchParams.get("product_name"))
+  console.log(param)
+  let productId = param.params.productId
+  let product_name = param.searchParams.product_name
+  console.log(productId, product_name)
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`http://localhost:8080/products/${productId}?product_name=${product_name}`); // Assuming the data.json file is in the public/data directory
+        const data = await response.json();
+        setProducts(data);
+        console.log(data, "hey hey")
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className=" h-[50px] lg:h-[50px]"></div>
       <div className='px-3 md:px-[100px]'>
         <section className='md:flex justify-between gap-10 my-10'>
           <div className='bg-white rounded-lg p-5 md:px-10 md:pt-10 shadow md:flex justify-between gap-10 mt-5'>
             <div className="md:w-1/2 w-full">
               <div className="rounded-lg">
-                <Carousel showArrows={true} showStatus={false} infiniteLoop={true}>
+                <Carousel showIndicators={true} showThumbs={false} showArrows={true} showStatus={false} infiniteLoop={true}>
                   <div>
-                    <Image src={require("../../../assets/download (1).jpeg")} alt="Product Image" />
+                    <Image src={product?.image} width={400} height={400} alt="Product Image" />
                   </div>
                   <div>
-                    <Image src={require("../../../assets/download (2).jpeg")} alt="Product Image" />
+                    <Image src={product?.image} width={400} height={400} alt="Product Image" />
                   </div>
                   <div>
-                    <Image src={require("../../../assets/download (3).jpeg")} alt="Product Image" />
+                    <Image src={product?.image} width={400} height={400} alt="Product Image" />
                   </div>
                 </Carousel>
               </div>
 
             </div>
             <div className="md:w-1/2">
-              <h1 className='text-3xl font-bold my-5'>High Pressure Cordless Rechargeable Washer 45v</h1>
-              <p className="text-lg mb-5">Price: $100</p>
+              <h1 className='text-3xl font-bold my-5'>{product?.name}</h1>
+              <p className="text-lg mb-5">Price: {product?.price}</p>
               <div className="flex items-center mb-5">
                 <span className="mr-3">Quantity:</span>
                 <div className="border border-gray-300 rounded-md flex items-center px-3">
@@ -67,7 +90,7 @@ function ProductPage() {
             </div>
           </div>
         </section>
-        <ProductSpec />
+        <ProductSpec product={product}/>
       </div>
     </div>
   );
