@@ -1,10 +1,16 @@
 import React, { useState } from 'react';
-import { FaStar } from "react-icons/fa";
-function ProductSpec({ product }: any) {
+import OverviewComponent from './products/productDetails/Overviews';
+import WarrantyComponent from './products/productDetails/Warranty';
+import ReviewsComponent from './products/productDetails/Reviews';
+import DescriptionComponent from './products/productDetails/Description';
+
+function ProductSpec({ product }:any) {
     const [activeHeader, setActiveHeader] = useState('Overview');
-    const handleHeaderClick = (header: any) => {
+
+    const handleHeaderClick = (header:any) => {
         setActiveHeader(header);
     };
+
     return (
         <section>
             <div className='bg-white rounded-lg p-6 md:p-10 shadow my-10'>
@@ -16,53 +22,21 @@ function ProductSpec({ product }: any) {
                 </div>
                 <div className='text-gray-700'>
                     {activeHeader === 'Overview' && (
-                        <div>
-                            <h2 className='text-xl font-semibold mb-2'>KEY FEATURES</h2>
-                            <ul className='list-disc pl-5'>
-                                {
-                                    [product?.overviews?.map((item: any, i: any) => {
-                                        return (
-                                            <li key={i}>{item}</li>
-
-                                        )
-                                    })]
-                                }
-                            </ul>
-                        </div>
+                        <OverviewComponent overviews={product?.overviews} />
                     )}
                     {activeHeader === 'Description' && (
-                        <p className='text-lg'>{product?.description}</p>
+                        <DescriptionComponent description={product?.description} />
                     )}
                     {activeHeader === 'Warranty' && (
-                        <div>
-                            {/* <h2 className='text-xl font-semibold mb-2'>Warranty</h2> */}
-                            <p className='text-lg'>{product.warranty}</p>
-                        </div>
+                        <WarrantyComponent warranty={product?.warranty} />
                     )}
                     {activeHeader === 'Reviews' && (
-                        <div>
-                            <h2 className='text-xl font-semibold mb-2'>Customer Reviews</h2>
-                            {product?.reviews.map((review:any) => (
-                                <div key={review.id} className='mb-3'>
-                                    <div className='flex justify-between items-center'>
-                                        <h3 className='text-lg font-semibold'>{review.reviewsMessag}</h3>
-                                        <p className='text-sm text-gray-500'>{review.time}</p>
-                                    </div>
-                                    <div className='flex items-center'>
-                                        <span className='text-lg mr-2'>Rating:</span>
-                                        {[...Array(review.rate)].map((_, i) => (
-                                           <FaStar /> 
-                                        ))}
-                                    </div>
-                                    <p className='text-lg'>{review.text}</p>
-                                </div>
-                            ))}
-                        </div>
+                        <ReviewsComponent reviews={product?.reviews} />
                     )}
                 </div>
             </div>
         </section>
-    )
+    );
 }
 
 export default ProductSpec;

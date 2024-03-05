@@ -7,6 +7,7 @@ import ProductSpec from '@/app/components/ProductSpec';
 import Navbar from '@/app/components/Navbar';
 import { notFound, useSearchParams } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
+import ProductSlider from '@/app/components/products/ProductSlider';
 
 function ProductPage(param: any,) {
   const [product, setProducts] = useState<any>({});
@@ -38,36 +39,7 @@ function ProductPage(param: any,) {
       <div className='px-3 md:px-[100px]'>
         <section className='md:flex justify-between gap-10 my-10'>
           <div className='bg-white rounded-lg p-5 md:px-10 md:pt-10 shadow md:flex justify-between gap-10 mt-5 md:w-[2000px]'>
-            <div className="md:w-1/2 w-full">
-              <div className="rounded-lg">
-                <Carousel showIndicators={true} showThumbs={false} showArrows={true} showStatus={false} infiniteLoop={true}>
-                  <div>
-                    <Image src={product?.image?.[0]} width={400} height={400} alt="Product Image" />
-                  </div>
-                  <div>
-                    <Image src={product?.image?.[1]} width={400} height={400} alt="Product Image" />
-                  </div>
-                  <div>
-                    <Image src={product?.image?.[2]} width={400} height={400} alt="Product Image" />
-                  </div>
-                </Carousel>
-              </div>
-
-              <section className='flex justify-between mt-3 gap-2'>
-               
-                {
-                  product?.image?.map((img:any,i:any)=>{
-                    return(
-                      <div className='border rounded-lg p-2 shadow hover:border-5  hover:border-[#1941e1]'>
-                       
-                      <Image src={img} width={70} height={70} alt="Product Image" />
-                      </div>
-                    )
-                  })
-                }
-              </section>
-
-            </div>
+            <ProductSlider product={product}/>
             <div className="md:w-1/2">
               <h1 className='text-3xl font-bold my-5'>{product?.name}</h1>
               <p className="text-lg mb-5">Price: {product?.price}</p>
