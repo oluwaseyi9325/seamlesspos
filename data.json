@@ -1,60 +1,154 @@
 {
   "products": [
     {
-      "id": 1,
-      "name": "Product 1",
-      "description": "Description of Product 1",
-      "price": 29.99,
-      "image": "https://via.placeholder.com/150",
-      "category": "Category 1"
+      "id": "P01",
+      "name": "Redmi 10C",
+      "description": "The Redmi 10C is a powerful smartphone designed to meet your everyday needs. With its sleek design and advanced features, it offers a seamless user experience.",
+      "overviews": [
+        "6.6-inch Full HD+ display",
+        "Snapdragon 680 processor",
+        "5000mAh battery",
+        "Quad camera setup"
+      ],
+      "warranty": "Warranty information unavailable for this item.",
+      "price": "$299.99",
+      "image": "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aXBob25lfGVufDB8fDB8fHww",
+      "category": "Electronic",
+      "reviews": [
+        {
+          "id": "rev01",
+          "reviewsMessage": "This product is of high quality and the price is reasonable.",
+          "rate": 5,
+          "userId": "",
+          "createAt": ""
+        }
+      ]
     },
     {
-      "id": 2,
-      "name": "Product 2",
-      "description": "Description of Product 2",
-      "price": 39.99,
-      "image": "https://via.placeholder.com/150",
-      "category": "Category 2"
+      "id": "P02",
+      "name": "Scientific Calculator FX-991EX",
+      "description": "The Scientific Calculator FX-991EX is an essential tool for students, engineers, and professionals. It features a high-resolution display, advanced functions, and a sleek design.",
+      "overviews": [
+        "High-resolution LCD display",
+        "552 functions",
+        "Solar powered with battery backup",
+        "Matrix and vector calculations"
+      ],
+      "warranty": "1-year manufacturer warranty",
+      "price": "$24.99",
+      "image": "https://images.unsplash.com/photo-1611125832047-1d7ad1e8e48f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8Y2FsY3VsYXRvcnxlbnwwfHwwfHx8MA%3D%3D",
+      "category": "Education",
+      "reviews": [
+        {
+          "id": "rev02",
+          "reviewsMessage": "Great calculator, very useful for my engineering courses.",
+          "rate": 5,
+          "userId": "",
+          "createAt": ""
+        }
+      ]
     },
     {
-      "id": 3,
-      "name": "Product 3",
-      "description": "Description of Product 3",
-      "price": 49.99,
-      "image": "https://via.placeholder.com/150",
-      "category": "Category 1"
+      "id": "P03",
+      "name": "Nike Air Zoom Pegasus 38",
+      "description": "The Nike Air Zoom Pegasus 38 is a versatile running shoe that offers comfort, support, and performance. Whether you're hitting the track or the trails, it's designed to help you reach your goals.",
+      "overviews": [
+        "Zoom Air cushioning",
+        "Lightweight mesh upper",
+        "Responsive foam midsole",
+        "Durable rubber outsole"
+      ],
+      "warranty": "30-day return policy",
+      "price": "$129.99",
+      "image": "https://images.unsplash.com/photo-1611125832047-1d7ad1e8e48f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8Y2FsY3VsYXRvcnxlbnwwfHwwfHx8MA%3D%3D",
+      "category": "Sport",
+      "reviews": [
+        {
+          "id": "rev03",
+          "reviewsMessage": "Love these shoes, very comfortable for long runs.",
+          "rate": 5,
+          "userId": "",
+          "createAt": ""
+        }
+      ]
     },
     {
-      "id": 4,
-      "name": "Product 4",
-      "description": "Description of Product 4",
-      "price": 59.99,
-      "image": "https://via.placeholder.com/150",
-      "category": "Category 2"
+      "id": "P04",
+      "name": "Sony WH-1000XM4 Wireless Headphones",
+      "description": "The Sony WH-1000XM4 Wireless Headphones deliver industry-leading noise cancellation, exceptional sound quality, and long-lasting comfort. Whether you're commuting, working, or relaxing, these headphones provide an immersive listening experience.",
+      "overviews": [
+        "Industry-leading noise cancellation",
+        "High-resolution audio quality",
+        "Up to 30 hours of battery life",
+        "Touch sensor controls"
+      ],
+      "warranty": "1-year manufacturer warranty",
+      "price": "$349.99",
+      "image": "https://images.unsplash.com/photo-1611125832047-1d7ad1e8e48f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8Y2FsY3VsYXRvcnxlbnwwfHwwfHx8MA%3D%3D",
+      "category": "Electronic",
+      "reviews": [
+        {
+          "id": "rev04",
+          "reviewsMessage": "Amazing headphones, worth every penny.",
+          "rate": 5,
+          "userId": "",
+          "createAt": ""
+        }
+      ]
     },
     {
-      "id": 5,
-      "name": "Product 4",
-      "description": "Description of Product 4",
-      "price": 59.99,
-      "image": "https://via.placeholder.com/150",
-      "category": "Category 5"
+      "id": "P05",
+      "name": "MacBook Pro 13-inch",
+      "description": "The MacBook Pro 13-inch is a powerful and portable laptop designed for professionals and creative individuals. With its stunning Retina display, fast performance, and all-day battery life, it's the perfect tool for work or play.",
+      "overviews": [
+        "13.3-inch Retina display",
+        "Apple M1 chip with 8-core CPU",
+        "Up to 20 hours of battery life",
+        "Magic Keyboard and Touch Bar"
+      ],
+      "warranty": "1-year AppleCare+ included",
+      "price": "$1299.99",
+      "image": "https://images.unsplash.com/photo-1611125832047-1d7ad1e8e48f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8Y2FsY3VsYXRvcnxlbnwwfHwwfHx8MA%3D%3D",
+      "category": "Electronic",
+      "reviews": [
+        {
+          "id": "rev05",
+          "reviewsMessage": "The MacBook Pro is lightning fast and the battery life is incredible.",
+          "rate": 5,
+          "userId": "",
+          "createAt": ""
+        }
+      ]
     },
     {
-      "id": 6,
-      "name": "Product 4",
-      "description": "Description of Product 4",
-      "price": 59.99,
-      "image": "https://via.placeholder.com/150",
-      "category": "Category 6"
-    },
+      "id": "P06",
+      "name": "Yoga Mat",
+      "description": "The Yoga Mat is essential for practicing yoga, Pilates, or any floor exercises. It provides cushioning and support for your joints and muscles, allowing you to focus on your practice and improve your flexibility and strength.",
+      "overviews": [
+        "Non-slip surface",
+        "Extra thick for comfort",
+        "Easy to clean and durable",
+        "Lightweight and portable"
+      ],
+      "warranty": "30-day return policy",
+      "price": "$29.99",
+      "image": "https://images.unsplash.com/photo-1611125832047-1d7ad1e8e48f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8Y2FsY3VsYXRvcnxlbnwwfHwwfHx8MA%3D%3D",
+      "category": "Sport",
+      "reviews": [
+        {
+          "id": "rev06",
+          "reviewsMessage": "Great quality mat, perfect for my yoga sessions.",
+          "rate": 5,
+          "userId": "",
+          "createAt": ""
+        }
+      ]
+    }
+  ],
+  "users": [
     {
-      "id": 7,
-      "name": "Product 4",
-      "description": "Description of Product 4",
-      "price": 59.99,
-      "image": "https://via.placeholder.com/150",
-      "category": "Category 7"
+      "id": "User01",
+      "name": "Seyi Adedokun"
     }
   ]
 }

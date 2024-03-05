@@ -1,5 +1,5 @@
 "use client"
-import NoCart from '@/app/components/NoCart';
+import NoCart from '@/app/components/cart/NoCart';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState } from 'react';
