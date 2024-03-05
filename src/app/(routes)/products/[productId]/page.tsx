@@ -5,13 +5,11 @@ import { FaFacebook, FaTwitter, FaWhatsapp } from 'react-icons/fa';
 import { Carousel } from 'react-responsive-carousel';
 import ProductSpec from '@/app/components/ProductSpec';
 import Navbar from '@/app/components/Navbar';
-import { useSearchParams } from 'next/navigation';
+import { notFound, useSearchParams } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 
 function ProductPage(param: any,) {
   const [product, setProducts] = useState<any>({});
-  // const searchParams = useSearchParams()
-  // console.log(searchParams.get("product_name"))
   console.log(param)
   let productId = param.params.productId
   let product_name = param.searchParams.product_name
@@ -30,27 +28,44 @@ function ProductPage(param: any,) {
 
     fetchData();
   }, []);
+  // if(!product.ok){
+  //    notFound()
+  // }
   return (
     <div>
-      {/* <Navbar /> */}
+      <Navbar />
       <div className=" h-[50px] lg:h-[50px]"></div>
       <div className='px-3 md:px-[100px]'>
         <section className='md:flex justify-between gap-10 my-10'>
-          <div className='bg-white rounded-lg p-5 md:px-10 md:pt-10 shadow md:flex justify-between gap-10 mt-5'>
+          <div className='bg-white rounded-lg p-5 md:px-10 md:pt-10 shadow md:flex justify-between gap-10 mt-5 md:w-[2000px]'>
             <div className="md:w-1/2 w-full">
               <div className="rounded-lg">
                 <Carousel showIndicators={true} showThumbs={false} showArrows={true} showStatus={false} infiniteLoop={true}>
                   <div>
-                    <Image src={product?.image} width={400} height={400} alt="Product Image" />
+                    <Image src={product?.image?.[0]} width={400} height={400} alt="Product Image" />
                   </div>
                   <div>
-                    <Image src={product?.image} width={400} height={400} alt="Product Image" />
+                    <Image src={product?.image?.[1]} width={400} height={400} alt="Product Image" />
                   </div>
                   <div>
-                    <Image src={product?.image} width={400} height={400} alt="Product Image" />
+                    <Image src={product?.image?.[2]} width={400} height={400} alt="Product Image" />
                   </div>
                 </Carousel>
               </div>
+
+              <section className='flex justify-between mt-3 gap-2'>
+               
+                {
+                  product?.image?.map((img:any,i:any)=>{
+                    return(
+                      <div className='border rounded-lg p-2 shadow hover:border-5  hover:border-[#1941e1]'>
+                       
+                      <Image src={img} width={70} height={70} alt="Product Image" />
+                      </div>
+                    )
+                  })
+                }
+              </section>
 
             </div>
             <div className="md:w-1/2">
@@ -76,7 +91,7 @@ function ProductPage(param: any,) {
               </div>
             </div>
           </div>
-          <div className='bg-white rounded-lg p-5 border shadow md:w-2/5 mt-5'>
+          <div className='bg-white rounded-lg p-5 border shadow md:w-5/6 mt-5'>
             <h2 className="text-2xl font-bold mb-5">Delivery & Returns</h2>
             <div>
               <h3 className="text-lg font-semibold">Delivery</h3>

@@ -1,11 +1,7 @@
-
-
 import React, { useState } from 'react';
-import { FaStairs } from 'react-icons/fa6';
-
+import { FaStar } from "react-icons/fa";
 function ProductSpec({ product }: any) {
     const [activeHeader, setActiveHeader] = useState('Overview');
-
     const handleHeaderClick = (header: any) => {
         setActiveHeader(header);
     };
@@ -55,7 +51,7 @@ function ProductSpec({ product }: any) {
                                     <div className='flex items-center'>
                                         <span className='text-lg mr-2'>Rating:</span>
                                         {[...Array(review.rate)].map((_, i) => (
-<FaStairs/>
+                                           <FaStar /> 
                                         ))}
                                     </div>
                                     <p className='text-lg'>{review.text}</p>
