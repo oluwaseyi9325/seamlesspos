@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import ProductCard from './products/ProductCard';
+import { ProductInterface } from '../interfaces';
 
 
 const ProductSection = () => {
-    const [products, setProducts] = useState([]);
+    const [products, setProducts] = useState<ProductInterface[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
     useEffect(() => {
@@ -23,7 +24,7 @@ const ProductSection = () => {
     }, [products]);
 
     if (loading) {
-        return <div>Loading...</div>;
+        return <div className='flex justify-center'>Loading...</div>;
     }
 
     if (error) {
@@ -37,13 +38,15 @@ const ProductSection = () => {
                 <div>
                     <select className="px-4 py-2 mr-4 bg-gray-200 text-gray-800 rounded">
                         <option value="">All Categories</option>
-                        {/* Add category options here */}
+                         <option>Sport</option>
+                         <option>Education</option>
+                        <option>Politics</option>
                     </select>
 
                 </div>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-                {products.map((product: any, index: any) => (
+                {products.map((product: ProductInterface, index: number) => (
                     <ProductCard key={index} product={product} />
                 ))}
             </div>

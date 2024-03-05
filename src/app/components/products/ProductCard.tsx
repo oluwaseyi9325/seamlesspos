@@ -1,8 +1,12 @@
+import { ProductInterface } from '@/app/interfaces';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import ReactReadMoreReadLess from "react-read-more-read-less";
-const ProductCard = ({ product }: any) => {
+interface ProductCardProps {
+    product:ProductInterface
+}
+const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     const styles={
         button:"bg-blue-500 text-white px-3 py-1 rounded-md hover:bg-blue-600 focus:outline-none text-sm",
         container:"bg-white rounded-lg shadow-md p-4 transition duration-300 ease-in-out transform hover:scale-105 border"

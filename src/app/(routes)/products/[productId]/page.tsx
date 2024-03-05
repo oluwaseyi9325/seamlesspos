@@ -8,9 +8,18 @@ import Navbar from '@/app/components/Navbar';
 import { notFound, useSearchParams } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 import ProductSlider from '@/app/components/products/ProductSlider';
-
-function ProductPage(param: any,) {
-  const [product, setProducts] = useState<any>({});
+import DeliveryDetails from '@/app/components/products/productDetails/DeliveryDetails';
+import { ProductInterface } from '@/app/interfaces';
+interface Param {
+  params: {
+      productId: string;
+  };
+  searchParams: {
+      product_name: string;
+  };
+}
+function ProductPage(param:Param) {
+  const [product, setProducts] = useState<ProductInterface>();
   console.log(param)
   let productId = param.params.productId
   let product_name = param.searchParams.product_name
@@ -18,7 +27,7 @@ function ProductPage(param: any,) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://localhost:8080/products/${productId}?product_name=${product_name}`); // Assuming the data.json file is in the public/data directory
+        const response = await fetch(`http://localhost:8080/products/${productId}?product_name=${product_name}`); 
         const data = await response.json();
         setProducts(data);
         console.log(data, "hey hey")
@@ -63,19 +72,8 @@ function ProductPage(param: any,) {
               </div>
             </div>
           </div>
-          <div className='bg-white rounded-lg p-5 border shadow md:w-5/6 mt-5'>
-            <h2 className="text-2xl font-bold mb-5">Delivery & Returns</h2>
-            <div>
-              <h3 className="text-lg font-semibold">Delivery</h3>
-              <p className="text-gray-600 mb-3">Estimated delivery time: 1-9 business days</p>
-              <p className="text-gray-600 mb-3">Express Delivery Available:</p>
-              <ul className="list-disc pl-5">
-                <li>Same day delivery: Order before 11AM and get it today</li>
-                <li>Next day delivery: Order after 11AM and get it tomorrow</li>
-                <li>Note: Subject to availability in your location</li>
-              </ul>
-            </div>
-          </div>
+          
+          <DeliveryDetails/>
         </section>
         <ProductSpec product={product}/>
       </div>

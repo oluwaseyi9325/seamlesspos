@@ -1,4 +1,4 @@
-export interface Product {
+export interface ProductInterface {
     id: string;
     name: string;
     description: string;
@@ -7,10 +7,11 @@ export interface Product {
     price: string;
     image: string[];
     category: string;
-    reviews: Review[];
+    reviews: ReviewInterface[];
 }
 
-export interface Review {
+export interface ReviewInterface {
+    map(arg0: (review: any) => import("react").JSX.Element): import("react").ReactNode;
     id: string;
     reviewsMessage: string;
     rate: number;

@@ -3,10 +3,21 @@ import OverviewComponent from './products/productDetails/Overviews';
 import WarrantyComponent from './products/productDetails/Warranty';
 import ReviewsComponent from './products/productDetails/Reviews';
 import DescriptionComponent from './products/productDetails/Description';
+import { ProductInterface } from '../interfaces';
+enum HeaderEnum {
+    Overview = 'Overview',
+    Description = 'Description',
+    Warranty = 'Warranty',
+    Reviews = 'Reviews',
+}
 
-function ProductSpec({ product }:any) {
-    const [activeHeader, setActiveHeader] = useState('Overview');
-    const headers = ['Overview', 'Description', 'Warranty', 'Reviews'];
+// interface Props{
+//     product:ProductInterface
+// }
+
+const  ProductSpec=({ product }:any)=> {
+    const [activeHeader, setActiveHeader] = useState<HeaderEnum>(HeaderEnum.Overview);
+    const headers= ['Overview', 'Description', 'Warranty', 'Reviews'];
     const handleHeaderClick = (header:any) => {
         setActiveHeader(header);
     };
@@ -30,16 +41,16 @@ function ProductSpec({ product }:any) {
                     ))}
                 </div>
                 <div className='text-gray-700'>
-                    {activeHeader === 'Overview' && (
+                    {activeHeader === HeaderEnum.Overview && (
                         <OverviewComponent overviews={product?.overviews} />
                     )}
-                    {activeHeader === 'Description' && (
+                    {activeHeader === HeaderEnum.Description && (
                         <DescriptionComponent description={product?.description} />
                     )}
-                    {activeHeader === 'Warranty' && (
+                    {activeHeader === HeaderEnum.Warranty && (
                         <WarrantyComponent warranty={product?.warranty} />
                     )}
-                    {activeHeader === 'Reviews' && (
+                    {activeHeader === HeaderEnum.Reviews && (
                         <ReviewsComponent reviews={product?.reviews} />
                     )}
                 </div>

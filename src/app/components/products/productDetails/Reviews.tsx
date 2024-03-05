@@ -1,7 +1,10 @@
+import { ProductInterface, ReviewInterface } from '@/app/interfaces';
 import React from 'react';
 import { FaStar } from "react-icons/fa";
-
-function ReviewsComponent({ reviews }:any) {
+interface ProductCardProps {
+    reviews:ReviewInterface
+}
+const ReviewsComponent: React.FC<ProductCardProps> =({ reviews })=> {
     return (
         <div>
             <h2 className='text-xl font-semibold mb-2'>Customer Reviews</h2>
