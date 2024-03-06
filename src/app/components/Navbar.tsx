@@ -11,14 +11,32 @@ const Navbar = () => {
   const [cartValue,setCartDetails]=useState(0)
   const [navbarBg,setNavbarBg]=useState(false)
 
-  const navColorChang=()=>{
-    if (window.scrollY>=80) {
-      setNavbarBg(true)
-    }else{
-      setNavbarBg(false)
+  // const navColorChang=()=>{
+  //   if (window.scrollY>=80) {
+  //     setNavbarBg(true)
+  //   }else{
+  //     setNavbarBg(false)
+  //   }
+  // }
+  // window.addEventListener("scroll",navColorChang)
+
+  const navColorChange = () => {
+    if (typeof window !== 'undefined') {
+      if (window.scrollY >= 80) {
+        setNavbarBg(true);
+      } else {
+        setNavbarBg(false);
+      }
     }
-  }
-  window.addEventListener("scroll",navColorChang)
+  };
+  
+  useEffect(() => {
+    window.addEventListener("scroll", navColorChange);
+    return () => {
+      window.removeEventListener("scroll", navColorChange);
+    };
+  }, []);
+  
 
   const toggleNavbar = () => {
     setIsOpen(!isOpen);
