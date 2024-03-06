@@ -4,16 +4,20 @@ import Link from 'next/link';
 import React from 'react';
 import ReactReadMoreReadLess from "react-read-more-read-less";
 import { toast } from 'react-toastify';
+// import { useRouter } from 'next/navigation'
 interface ProductCardProps {
     product:ProductInterface
 }
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
+    // const router = useRouter();
+
     const cartBtn = () => {
         const existingCart = localStorage.getItem("cartDetails");
         const cartArray = existingCart ? JSON.parse(existingCart) : [];
         cartArray.push(product.id);
         localStorage.setItem("cartDetails", JSON.stringify(cartArray));
         toast("Cart added!")
+    //   router.refresh()
     };
     
     const styles={
