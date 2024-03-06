@@ -78,7 +78,7 @@ useEffect(() => {
       <div className=" h-[50px] lg:h-[50px]"></div>
       <div className='px-3 md:px-[100px]'>
         <section className='lg:flex justify-between gap-10 my-20'>
-          <div className='bg-white rounded-lg p-5 md:px-10 md:pt-10 shadow md:flex justify-between gap-10 mt-5 lg:w-[2000px]'>
+          <div className='bg-white rounded-lg p-5  md:px-10 md:pt-10 shadow md:flex justify-between gap-10 mt-5 lg:w-[2000px]'>
             <ProductSlider product={product}/>
             <div className="md:w-1/2">
               <h1 className='text-3xl font-bold my-5'>{product?.name}</h1>
@@ -96,9 +96,9 @@ useEffect(() => {
               <div className='my-5'>
                 <h3 className="text-lg mb-3">Share with friends</h3>
                 <div className='flex gap-5'>
-                  <FaFacebook className='border rounded-full' />
-                  <FaTwitter className='border rounded-full'/>
-                  <FaWhatsapp className='border rounded-full'/>
+                  <span className='border rounded-full p-1'><FaFacebook color='blue'  /></span>
+                  <span className='border rounded-full p-1'><FaTwitter /></span>
+                 <span className='border rounded-full p-1'> <FaWhatsapp color='green' /></span>
                 </div>
               </div>
             </div>
