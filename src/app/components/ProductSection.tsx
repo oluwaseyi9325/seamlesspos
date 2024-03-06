@@ -4,6 +4,7 @@
 import React, { useEffect, useState } from 'react';
 import ProductCard from './products/ProductCard';
 import { ProductInterface } from '../interfaces';
+import { RiseLoader } from 'react-spinners';
 
 const ProductSection = ({ showStatus }: any) => {
     const [products, setProducts] = useState<ProductInterface[]>([]);
@@ -62,9 +63,9 @@ const ProductSection = ({ showStatus }: any) => {
             </div>
             <div >
             {loading ? (
-                    <div className='flex justify-center'>Loading...</div>
+                    <div className='flex justify-center my-20'><RiseLoader size={20} color="#36d7b7" /></div>
             ) : error ? (
-                <div>Error: {error}</div>
+                <div><RiseLoader color="#36d7b7" /></div>
             ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
                 {filteredProducts.map((product: ProductInterface, index: number) => (
