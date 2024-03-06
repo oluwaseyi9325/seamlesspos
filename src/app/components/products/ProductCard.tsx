@@ -7,6 +7,13 @@ interface ProductCardProps {
     product:ProductInterface
 }
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
+    const cartBtn = () => {
+        const existingCart = localStorage.getItem("cartDetails");
+        const cartArray = existingCart ? JSON.parse(existingCart) : [];
+        cartArray.push(product.id);
+        localStorage.setItem("cartDetails", JSON.stringify(cartArray));
+    };
+    
     const styles={
         button:"bg-blue-500 text-white px-3 py-1 rounded-md hover:bg-blue-600 focus:outline-none text-sm",
         container:"bg-white rounded-lg shadow-md p-4 transition duration-300 ease-in-out transform hover:scale-105 border"
@@ -26,13 +33,14 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
                     <ReactReadMoreReadLess readMoreText={""} charLimit={50}>{product.description}
                     </ReactReadMoreReadLess>
                 </p>
+                </Link>
                 <div className="flex justify-between items-center mb-2">
                     <p className="text-gray-800 font-semibold">{product.price}</p>
-                    <button className={styles.button}>
+                    <button onClick={()=>cartBtn()} className={styles.button}>
                         Add to Cart
                     </button>
                 </div>
-            </Link>
+           
         </div>
     );
 };

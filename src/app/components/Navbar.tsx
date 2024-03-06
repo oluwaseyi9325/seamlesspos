@@ -63,7 +63,7 @@ const Navbar = () => {
         </div>
         <div className="relative">
           <sup className="text-[#1941e1] bg-white font-bold p-2 rounded-full absolute -top-2 -right-2">{cartItems.length}</sup>
-          <FaShoppingCart size={24} className="text-[#1941e1] cursor-pointer" />
+          <Link href="/cart"><FaShoppingCart size={24} className="text-red-700 cursor-pointer" /></Link>
         </div>
       </div>
       {isOpen && (
