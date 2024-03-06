@@ -14,7 +14,7 @@ function NoCart() {
                         <BsCartXFill size={80} color='red' />
                     </div>
                     <h3 className='font-bold my-5 text-2xl'>Your cart is empty.</h3>
-                    <p className='text-gray-600 mb-5'>Looks like you haven't added any items to your cart yet.</p>
+                    <p className='text-gray-600 mb-5'>Looks like you haven&apos;t added any items to your cart yet.</p>
                     <button className={styles.button}>
                         Explore Products
                     </button>
