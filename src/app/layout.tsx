@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Footer from "./components/Footer";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import 'react-toastify/dist/ReactToastify.css';
 import Navbar from "./components/Navbar";
 const inter = Inter({ subsets: ["latin"] });
 

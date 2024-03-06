@@ -10,6 +10,7 @@ import React, { useEffect, useState } from 'react';
 import ProductSlider from '@/app/components/products/ProductSlider';
 import DeliveryDetails from '@/app/components/products/productDetails/DeliveryDetails';
 import { ProductInterface } from '@/app/interfaces';
+import { ToastContainer, toast } from 'react-toastify';
 interface Param {
   params: {
       productId: string;
@@ -59,6 +60,14 @@ const decrementQuantity = () => {
     }
 };
 
+const cartBtn = () => {
+  const existingCart = localStorage.getItem("cartDetails");
+  const cartArray = existingCart ? JSON.parse(existingCart) : [];
+  cartArray.push(product?.id);
+  localStorage.setItem("cartDetails", JSON.stringify(cartArray));
+  toast("Cart added!")
+};
+
 useEffect(() => {
   const savedQuantity = localStorage.getItem('quantity');
   const savedPrice= localStorage.getItem('newPrice');
@@ -75,6 +84,7 @@ useEffect(() => {
   return (
     <div>
       <Navbar />
+      <ToastContainer />
       <div className=" h-[50px] lg:h-[50px]"></div>
       <div className='px-3 md:px-[100px]'>
         <section className='lg:flex justify-between gap-10 my-20'>
@@ -91,7 +101,7 @@ useEffect(() => {
                 <button className="focus:outline-none" onClick={incrementQuantity}>+</button>
             </div>
               </div>
-              <button className='bg-[#19d7b4] text-white py-2 px-10 font-bold rounded-lg mb-5 hover:bg-[#1941e1]'>Buy Now</button>
+              <button onClick={()=>cartBtn()} className='bg-[#19d7b4] text-white py-2 px-10 font-bold rounded-lg mb-5 hover:bg-[#1941e1]'>Add to Cart</button>
               <div className='border border-gray-200'></div>
               <div className='my-5'>
                 <h3 className="text-lg mb-3">Share with friends</h3>

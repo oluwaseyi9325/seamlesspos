@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import ReactReadMoreReadLess from "react-read-more-read-less";
+import { toast } from 'react-toastify';
 interface ProductCardProps {
     product:ProductInterface
 }
@@ -12,6 +13,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         const cartArray = existingCart ? JSON.parse(existingCart) : [];
         cartArray.push(product.id);
         localStorage.setItem("cartDetails", JSON.stringify(cartArray));
+        toast("Cart added!")
     };
     
     const styles={

@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState,useEffect } from 'react';
 import { IoArrowBackCircle } from "react-icons/io5";
-
+import { ToastContainer, toast } from 'react-toastify';
 function CartPage() {
     const [noCartHere,setNoCartHere]=useState(true)
     const [cartDetails, setCartDetails] = useState<string[]>([]);
@@ -47,6 +47,7 @@ function CartPage() {
         localStorage.setItem("cartDetails", JSON.stringify(updatedCart));
        
         fetchProducts(updatedCart);
+        toast("Cart removed!")
     };
 
     useEffect(() => {
@@ -76,6 +77,7 @@ function CartPage() {
     return (
      <div>
           <Navbar/>
+          <ToastContainer />
             <div className=" h-[50px] lg:h-[60px]"></div> 
            <div className='container mx-auto px-3 md:px-[100px] my-10'>
             <div className='mb-5'>
