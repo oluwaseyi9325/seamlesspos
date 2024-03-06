@@ -35,7 +35,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
                 </p>
                 </Link>
                 <div className="flex justify-between items-center mb-2">
-                    <p className="text-gray-800 font-semibold">{product.price}</p>
+                    <p className="text-gray-800 font-semibold">${product.price}</p>
                     <button onClick={()=>cartBtn()} className={styles.button}>
                         Add to Cart
                     </button>
